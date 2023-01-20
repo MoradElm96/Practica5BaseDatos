@@ -15,7 +15,7 @@ import java.sql.SQLException;
  */
 public class Conexion {
     
-     private static final String BbddName = "Tienda";
+     private static final String BbddName = "pruebas";
      private static final String bbddUrl = "jdbc:mysql://localhost/"+ BbddName;//se usa la base de datos america,facilitada por el script
      private static final String usuario = "root";
      private static  final String clave = "";
@@ -31,6 +31,7 @@ public class Conexion {
 
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(bbddUrl, usuario, clave);
+            System.out.println("Se ha conectado a la base de datos");
 
         } catch (Exception ex) {
             System.out.println("Error al conectar con la base de datos.\n"
@@ -44,6 +45,7 @@ public class Conexion {
     public  void cerrarConexion() {
         try {
             conn.close();
+            System.out.println("Se ha cerrado la conexion a la base de datos");
         } catch (SQLException e) {
             System.out.println("la conexion no se ha cerrado");
             System.out.println(e.getMessage().toString());
